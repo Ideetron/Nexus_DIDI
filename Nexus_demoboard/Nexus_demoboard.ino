@@ -259,8 +259,11 @@ void loop()
 			
 			// Measure the Supply voltage, the LDR and the Potentio meter
 			app.SupplyVoltage = read_supply_voltage();
+			digitalWrite(A3,		HIGH);			//  low power
+			delay(10);								//  low power
 			app.LDR_value = analogRead(LDR);
 			app.POT_value = analogRead(POT_METER);
+			digitalWrite(A3,		LOW);			//  low power
 			
 			// Print a message to the serial port
 			Serial.println();
