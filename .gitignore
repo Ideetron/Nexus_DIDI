@@ -1,3 +1,5 @@
+*.cppproj
+*.xml
 *.d
 *.pre
 *.p1
@@ -7,16 +9,7 @@
 *.o
 *.sdb
 *.obj.dmp
-html/
-nbproject/private/
-nbproject/Package-*.bash
+Debug/
 build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-funclist
-nbproject/Makefile-*
-disassembly/
-*.map
+
+
