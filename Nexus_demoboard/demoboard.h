@@ -48,6 +48,7 @@
 	void		movement_sensor_init			(void);
 	double		read_supply_voltage				(void);
 	void		demoboard_enable_button_wakeup	(void);
+	double		voltageread						(int);
 
 
 #endif /*  */

@@ -141,6 +141,7 @@ void setup(void)
 	SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE0));
 	
 	//Initialize I/O pins for the RFM95, DS2401 and MCP
+	pinMode(A3,				OUTPUT);		// Switched power for sensors
 	pinMode(A6,				INPUT);
 	pinMode(A7,				INPUT);
 	pinMode(DS2401, 		OUTPUT);
@@ -210,6 +211,7 @@ void loop()
 	RTC_ALARM = false;
 	BUTTONS_ACTIVE = false;
 
+
 	// Super loop
 	while(1)
 	{	
@@ -260,7 +262,8 @@ void loop()
 			// Measure the Supply voltage, the LDR and the Potentio meter
 			app.SupplyVoltage = read_supply_voltage();
 			digitalWrite(A3,		HIGH);			//  low power
-			delay(10);								//  low power
+			delay(2);								//  low power
+			analogRead (LDR);						// first ADC conversion might be unreliable due to reference switching.
 			app.LDR_value = analogRead(LDR);
 			app.POT_value = analogRead(POT_METER);
 			digitalWrite(A3,		LOW);			//  low power
